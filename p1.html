@@ -2,230 +2,45 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jogo das Perguntas - Museu Carmen Miranda</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:
-    linear-gradient(135deg,#ff8c42,#e63946,#ffd54f);
-
-    overflow:hidden;
-}
-
-.card{
-
-    width:90%;
-    max-width:850px;
-
-    background:rgba(255,255,255,0.12);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,0.2);
-
-    border-radius:30px;
-
-    padding:50px;
-
-    text-align:center;
-
-    box-shadow:0 20px 50px rgba(0,0,0,0.3);
-
-}
-
-.titulo{
-    font-size:3rem;
-    font-weight:700;
-    color:white;
-}
-
-.subtitulo{
-    color:#ffd54f;
-    margin-top:10px;
-    font-size:1.2rem;
-}
-
-.pergunta-num{
-    margin-top:40px;
-    color:#ffd54f;
-    font-size:1.1rem;
-    font-weight:600;
-}
-
-.pergunta{
-    margin-top:15px;
-    color:white;
-    font-size:1.8rem;
-    font-weight:600;
-}
-
-button{
-
-    width:100%;
-
-    margin-top:15px;
-
-    padding:18px;
-
-    border:none;
-
-    border-radius:15px;
-
-    font-size:1rem;
-
-    cursor:pointer;
-
-    transition:0.3s;
-
-    background:white;
-
-    font-weight:600;
-}
-
-button:hover{
-    transform:translateY(-4px);
-}
-
-#resultado{
-    margin-top:25px;
-    font-size:1.5rem;
-    font-weight:bold;
-}
-
-.fruta{
-    position:absolute;
-    font-size:40px;
-    opacity:0.15;
-}
-
-.f1{
-    top:10%;
-    left:10%;
-}
-
-.f2{
-    top:20%;
-    right:15%;
-}
-
-.f3{
-    bottom:15%;
-    left:20%;
-}
-
-.f4{
-    bottom:10%;
-    right:10%;
-}
-
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Jogo das Perguntas — Museu Carmen Miranda</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="card">
+  <h1 class="titulo">Jogo das Perguntas</h1>
+  <p class="subtitulo">Museu Carmen Miranda</p>
 
-    <h1 class="titulo">Jogo das Perguntas</h1>
+  <div class="barra-progresso">
+    <span class="preenchida"></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
 
-    <p class="subtitulo">
-        Museu Carmen Miranda
-    </p>
+  <p class="numero-pergunta">Pergunta 1</p>
+  <p class="pergunta">Por que motivo Carmen Miranda ficou famosa internacionalmente?</p>
 
-    <div class="pergunta-num">
-        Pergunta 1
-    </div>
-
-    <div class="pergunta">
-        Por que motivo Carmen Miranda ficou famosa internacionalmente?
-    </div>
-
-    <button onclick="verificar(false)">
-        Pelas suas descobertas na área da rádio
-    </button>
-
-    <button onclick="verificar(true)">
-        Pelo cinema e pela música
-    </button>
-
-    <button onclick="verificar(false)">
-        Pela sua carreira como escritora
-    </button>
-
-    <div id="resultado"></div>
-
+  <div class="opcoes">
+    <button class="opcao" data-correta="true">Pelas suas atuações como cantora e atriz em Hollywood</button>
+    <button class="opcao" data-correta="false">Por ter sido a primeira mulher presidente do Brasil</button>
+    <button class="opcao" data-correta="false">Por ter inventado um estilo de futebol brasileiro</button>
+  </div>
 </div>
 
+<div class="overlay" id="overlay-feedback">
+  <div class="mensagem-feedback" id="caixa-feedback">
+    <span class="icone" id="icone-feedback"></span>
+    <p class="texto-resultado" id="texto-feedback"></p>
+  </div>
+</div>
+
+<div class="mensagem-qr" id="mensagem-qr">🔎 Procura o próximo código QR!</div>
+
+<script src="script.js"></script>
 <script>
-
-let respondido = false;
-
-function verificar(correta, botao){
-
-    if(respondido) return;
-
-    respondido = true;
-
-    const resultado = document.getElementById("resultado");
-    const botoes = document.querySelectorAll("button");
-
-    botoes.forEach(btn => {
-        btn.disabled = true;
-        btn.style.opacity = "0.7";
-        btn.style.cursor = "not-allowed";
-    });
-
-    if(correta){
-        resultado.innerHTML = "✅ Correto!";
-        resultado.style.color = "#7CFF8A";
-
-        botao.style.background = "#7CFF8A";
-        botao.style.color = "#000";
-    }
-    else{
-        resultado.innerHTML = "❌ Errado!";
-        resultado.style.color = "#ff2c2c";
-
-        botao.style.background = "#ff2c2c";
-        botao.style.color = "#fff";
-    }
-}
-
+  iniciarPergunta(1, 10);
 </script>
-
-function verificar(correta){
-
-    const resultado =
-        document.getElementById("resultado");
-
-    if(correta){
-        resultado.innerHTML="✅ Correto!";
-        resultado.style.color="#7CFF8A";
-    }
-    else{
-        resultado.innerHTML=" Errado!";
-        resultado.style.color="#ff2c2c";
-    }
-
-}
-
-</script>
-
 </body>
+</html>
+
 </html>
