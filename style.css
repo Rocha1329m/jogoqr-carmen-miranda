@@ -1,30 +1,61 @@
-body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    background:#f4f4f4;
-    padding:40px;
+/* Responsividade para telemóveis */
+@media (max-width: 768px){
+
+    .card{
+        width:95%;
+        padding:25px;
+        border-radius:20px;
+    }
+
+    .titulo{
+        font-size:2rem;
+    }
+
+    .subtitulo{
+        font-size:1rem;
+    }
+
+    .pergunta-num{
+        margin-top:25px;
+        font-size:1rem;
+    }
+
+    .pergunta{
+        font-size:1.3rem;
+        line-height:1.4;
+    }
+
+    button{
+        padding:15px;
+        font-size:0.95rem;
+    }
+
+    #resultado{
+        font-size:1.2rem;
+    }
+
+    .fruta{
+        font-size:25px;
+    }
 }
 
-.pergunta{
-    background:white;
-    max-width:700px;
-    margin:auto;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
+@media (max-width: 480px){
 
-button{
-    display:block;
-    width:100%;
-    padding:15px;
-    margin:10px 0;
-    font-size:16px;
-    cursor:pointer;
-}
+    .card{
+        width:96%;
+        padding:20px;
+    }
 
-#resultado{
-    margin-top:20px;
-    font-size:22px;
-    font-weight:bold;
+    .titulo{
+        font-size:1.7rem;
+    }
+
+    .pergunta{
+        font-size:1.15rem;
+    }
+
+    button{
+        padding:14px;
+        font-size:0.9rem;
+    }
 }
