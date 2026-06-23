@@ -2,195 +2,25 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jogo das Perguntas - Museu Carmen Miranda</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:
-    linear-gradient(135deg,#ff8c42,#e63946,#ffd54f);
-
-    overflow:hidden;
-}
-
-.card{
-
-    width:90%;
-    max-width:850px;
-
-    background:rgba(255,255,255,0.12);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,0.2);
-
-    border-radius:30px;
-
-    padding:50px;
-
-    text-align:center;
-
-    box-shadow:0 20px 50px rgba(0,0,0,0.3);
-
-}
-
-.titulo{
-    font-size:3rem;
-    font-weight:700;
-    color:white;
-}
-
-.subtitulo{
-    color:#ffd54f;
-    margin-top:10px;
-    font-size:1.2rem;
-}
-
-.pergunta-num{
-    margin-top:40px;
-    color:#ffd54f;
-    font-size:1.1rem;
-    font-weight:600;
-}
-
-.pergunta{
-    margin-top:15px;
-    color:white;
-    font-size:1.8rem;
-    font-weight:600;
-}
-
-button{
-
-    width:100%;
-
-    margin-top:15px;
-
-    padding:18px;
-
-    border:none;
-
-    border-radius:15px;
-
-    font-size:1rem;
-
-    cursor:pointer;
-
-    transition:0.3s;
-
-    background:white;
-
-    font-weight:600;
-}
-
-button:hover{
-    transform:translateY(-4px);
-}
-
-#resultado{
-    margin-top:25px;
-    font-size:1.5rem;
-    font-weight:bold;
-}
-
-.fruta{
-    position:absolute;
-    font-size:40px;
-    opacity:0.15;
-}
-
-.f1{
-    top:10%;
-    left:10%;
-}
-
-.f2{
-    top:20%;
-    right:15%;
-}
-
-.f3{
-    bottom:15%;
-    left:20%;
-}
-
-.f4{
-    bottom:10%;
-    right:10%;
-}
-
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Resultado — Jogo das Perguntas Museu Carmen Miranda</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="card">
+<div class="card resultado-final">
+  <h1 class="titulo">Fim do Jogo!</h1>
+  <p class="subtitulo">Museu Carmen Miranda</p>
 
-    <h1 class="titulo">Jogo das Perguntas</h1>
+  <p class="pontuacao" id="valor-pontuacao">0<span>/10</span></p>
+  <p class="mensagem-final" id="mensagem-final">A calcular o teu resultado...</p>
 
-    <p class="subtitulo">
-        Museu Carmen Miranda
-    </p>
-
-    <div class="pergunta-num">
-        Pergunta 11
-    </div>
-
-   <div class="pergunta">
-    Qual foi uma das principais razões para Carmen Miranda se tornar uma figura mundialmente conhecida?
+  <button class="botao-reiniciar" onclick="reiniciarJogo()">Jogar novamente</button>
 </div>
 
-<button onclick="verificar(true)">
-    A combinação do seu talento musical com uma imagem única e marcante
-</button>
-
-<button onclick="verificar(false)">
-    A sua carreira como realizadora de documentários científicos
-</button>
-
-<button onclick="verificar(false)">
-    O seu trabalho como correspondente de guerra
-</button>
-
-    <div id="resultado"></div>
-
-</div>
-
+<script src="script.js"></script>
 <script>
-
-function verificar(correta){
-
-    const resultado =
-        document.getElementById("resultado");
-
-    if(correta){
-        resultado.innerHTML="✅ Correto!";
-        resultado.style.color="#7CFF8A";
-    }
-    else{
-        resultado.innerHTML=" Errado!";
-        resultado.style.color="#ff2c2c";
-    }
-
-}
-
+  mostrarResultadoFinal(10);
 </script>
-
 </body>
 </html>
