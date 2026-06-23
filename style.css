@@ -1,4 +1,12 @@
-/* Responsividade para telemóveis */
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff8c42,#e63946,#ffd54f);
+    overflow-y:auto;
+    padding:15px;
+}
 @media (max-width: 768px){
 
     .card{
